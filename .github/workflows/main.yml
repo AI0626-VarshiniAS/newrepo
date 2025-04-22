@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Add IP to Security Group
-        uses: ./path/to/aws-security-group-add-ip-action
+        uses: AI0626-VarshiniAS/aws-security-group@main 
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
