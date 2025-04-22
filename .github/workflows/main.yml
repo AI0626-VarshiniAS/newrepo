@@ -17,4 +17,12 @@ jobs:
           port: '22'
           description: 'GitHub runner'
 
+      - name: testing
+        run: |
+          ls 
+          pwd
+          mkdir test 
+          rm -r  test
+      
+
 
