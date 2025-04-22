@@ -2,8 +2,7 @@ name: testing
 on:
   push:
     branches:
-      - main
-      
+      - main      
 jobs:
   modify-sg:
     runs-on: ubuntu-latest
