@@ -19,7 +19,7 @@ jobs:
           security-group-id: sg-09ac666956fd81b39
           port: '22'
           description: 'GitHub runner'
-          action: add
+          action: remove
       
 
 
