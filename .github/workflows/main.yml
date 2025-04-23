@@ -13,18 +13,18 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Add IP to Security Group
-        uses: AI0626-VarshiniAS/aws-security-group@main 
+        uses: AI0626-VarshiniAS/aws-security-group@main
         with:
           account-id: '106'
           aws-region: us-east-1
           security-group-id: sg-09ac666956fd81b39
           port: 22
-          protocol: tcp
           action: add
-          
         env:
           AWS_ACCESS_KEY_106: ${{ secrets.AWS_ACCESS_KEY_106 }}
           AWS_SECRET_ACCESS_KEY_106: ${{ secrets.AWS_SECRET_ACCESS_KEY_106 }}
+      
+
 
 
 # jobs:
