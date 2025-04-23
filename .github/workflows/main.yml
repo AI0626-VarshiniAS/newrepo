@@ -22,7 +22,9 @@ jobs:
           protocol: tcp
           action: add
           
-
+        env:
+          AWS_ACCESS_KEY_106: ${{ secrets.AWS_ACCESS_KEY_106 }}
+          AWS_SECRET_ACCESS_KEY_106: ${{ secrets.AWS_SECRET_ACCESS_KEY_106 }}
 
 # jobs:
 #   update-sg:
