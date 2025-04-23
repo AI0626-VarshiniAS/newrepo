@@ -5,22 +5,43 @@ on:
       - main      
 
       
-jobs:
-  modify-sg:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+# jobs:
+#   modify-sg:
+#     runs-on: ubuntu-latest
+    # steps:
+    #   - name: Checkout repository
+    #     uses: actions/checkout@v2
 
-      - name: Add IP to Security Group
-        uses: AI0626-VarshiniAS/aws-security-group@main 
-        with:
-          account-id: '106'
-          aws-region: us-east-1
-          security-group-id: sg-09ac666956fd81b39
-          port: 22
-          protocol: tcp
-          action: add
+    #   - name: Add IP to Security Group
+    #     uses: AI0626-VarshiniAS/aws-security-group@main 
+    #     with:
+    #       account-id: '106'
+    #       aws-region: us-east-1
+    #       security-group-id: sg-09ac666956fd81b39
+    #       port: 22
+    #       protocol: tcp
+    #       action: add
           
 
 
+jobs:
+  update-sg:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create .env file from secret
+        run: echo "${{ secrets.SECRETS }}" > .env
+
+      - name: Run custom IP modifier
+        uses: AI0626-VarshiniAS/aws-security-group@main
+        with:
+          aws-region: us-east-1
+          security-group-id: sg-09ac666956fd81b39
+          port: '22'
+          protocol: tcp
+          action: add
+          description: GitHub runner IP
+          account-id: '106'
